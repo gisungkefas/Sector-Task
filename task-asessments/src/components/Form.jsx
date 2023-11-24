@@ -55,43 +55,60 @@ const Form = () => {
     };
 
     return (
-        <div className="form-container">
-            <h2>Data Form</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input className='textbox'
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-
-                <label htmlFor="sectors">Sectors:</label>
-                <div className='sectorwrapper'>
-
-                <select className= 'selectbox' size={5} value={sectors} onChange={(e) => setSectors(e.target.value)}>
-                    {sectorsList.map((sector) => (
-                        <option key={sector.name} value={sector.name}>
-                            {sector.name}
-                        </option>
-                    ))}
-                </select>
-                </div>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={agreeTerms}
-                        onChange={() => setAgreeTerms(!agreeTerms)}
-                        required
-                    />
-                    Agree to terms
-                </label>
-
-                <button className = 'button' type="submit">Save</button>
-            </form>
+    <div className="container-form">
+      <h2>Data Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name" className="label">
+            Name:
+          </label>
+          <input
+            className="input-field"
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </div>
+
+        <div className="form-group">
+          <label htmlFor="sectors" className="label">
+            Sectors:
+          </label>
+          <div className="sectorwrapper">
+            <select
+              className="selectbox"
+              size={5}
+              value={sectors}
+              onChange={(e) => setSectors(e.target.value)}
+            >
+              {sectorsList.map((sector) => (
+                <option key={sector.name} value={sector.name}>
+                  {sector.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label className="label">
+            <input
+              type="checkbox"
+              checked={agreeTerms}
+              onChange={() => setAgreeTerms(!agreeTerms)}
+              required
+            />
+            Agree to terms
+          </label>
+        </div>
+
+        <button className="button" type="submit">
+          Save
+        </button>
+      </form>
+    </div>
     );
 };
 

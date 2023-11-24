@@ -12,6 +12,7 @@ appBody {
   justify-content: flex-start;
   height: 100vh;
   padding: 20px;
+  width: 100%;
 }
 
 .headerText {
